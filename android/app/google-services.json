@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1048656119198",
+    "project_id": "rushd-d72b1",
+    "storage_bucket": "rushd-d72b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048656119198:android:ef2ef0735f1faed105828f",
+        "android_client_info": {
+          "package_name": "com.example.rushd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048656119198-99df9bbec0i0tmvomgoegqgevs9h8gt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkwEMhMjm7XonBaq8y6MTycO8xMxIpkO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048656119198-99df9bbec0i0tmvomgoegqgevs9h8gt2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048656119198-vn9v72h70ovg3ajbek5kjdldkoul5iff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rushd"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
