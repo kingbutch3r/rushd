@@ -1,12 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:rushd/app/common/const.dart';
-import 'package:rushd/app/data/models/audiobook_model.dart';
 import 'package:rushd/app/modules/audiobook/controllers/audiobook_controller.dart';
-import 'package:rushd/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -24,8 +20,8 @@ class HomeView extends GetView<HomeController> {
           "Shoeb",
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          const CircleAvatar(
+        actions: const [
+          CircleAvatar(
             backgroundColor: Const.mainBlack,
           )
         ],
@@ -87,19 +83,18 @@ class HomeView extends GetView<HomeController> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Card(
-                  child: Container(
-                    height: 200,
-                    width: Get.width,
-                  ),
                   color: Const.primaryColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
+                  child: SizedBox(
+                    height: 200,
+                    width: Get.width,
+                  ),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+                child: Text(
                   "Recomended Books",
                   style: TextStyle(
                       color: Const.mainBlack,
@@ -132,19 +127,18 @@ class HomeView extends GetView<HomeController> {
                                   children: [
                                     Text(
                                       "${book.author}  | ${book.langauge.toString().toUpperCase()}",
-                                      style: TextStyle(fontSize: 12),
+                                      style: const TextStyle(fontSize: 12),
                                     ),
                                     Row(
                                       children: [
                                         for (var genr in book.genre!)
                                           Padding(
-                                            padding: EdgeInsets.all(2),
+                                            padding: const EdgeInsets.all(2),
                                             child: InkWell(
-                                              onTap: () {
-                                                print(genr + " is Tapped");
-                                              },
+                                              onTap: () {},
                                               child: Container(
-                                                  padding: EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
                                                       horizontal: 5,
                                                       vertical: 1),
                                                   decoration: BoxDecoration(
@@ -155,7 +149,7 @@ class HomeView extends GetView<HomeController> {
                                                           Const.secondaryColor),
                                                   child: Text(
                                                     genr,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 11,
                                                         color: Const.mainWhite),
                                                   )),
@@ -167,14 +161,14 @@ class HomeView extends GetView<HomeController> {
                                 ),
                                 title: Text(
                                   book.title!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                       color: Const.mainBlack),
                                 ),
                                 trailing: IconButton(
                                     onPressed: () {},
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.play_arrow_outlined,
                                       color: Const.primaryColor,
                                     )),

@@ -7,8 +7,9 @@ class AudiobookProvider extends GetConnect {
   void onInit() {
     httpClient.defaultDecoder = (map) {
       if (map is Map<String, dynamic>) return Audiobook.fromJson(map);
-      if (map is List)
+      if (map is List) {
         return map.map((item) => Audiobook.fromJson(item)).toList();
+      }
     };
     httpClient.baseUrl = 'YOUR-API-URL';
   }

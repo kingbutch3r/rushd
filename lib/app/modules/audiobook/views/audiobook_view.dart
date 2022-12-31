@@ -10,7 +10,7 @@ import '../controllers/audiobook_controller.dart';
 
 class AudiobookView extends StatelessWidget {
   AudiobookView({Key? key}) : super(key: key);
-  AudiobookController controller = Get.find<AudiobookController>();
+  final AudiobookController controller = Get.find<AudiobookController>();
   final Audiobook _audiobook = Get.arguments;
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class AudiobookView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           '${_audiobook.title}',
-          style: TextStyle(color: Const.mainBlack),
+          style: const TextStyle(color: Const.mainBlack),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Const.mainBlack),
+        iconTheme: const IconThemeData(color: Const.mainBlack),
         centerTitle: true,
       ),
       bottomNavigationBar: Material(
@@ -45,8 +45,8 @@ class AudiobookView extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       controller.audioBook!.title!,
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -73,7 +73,7 @@ class AudiobookView extends StatelessWidget {
                           controller.player
                               .setSpeed(controller.player.speed - 0.25);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.fast_rewind_rounded,
                           size: 35,
                           color: Const.mainBlack,
@@ -84,7 +84,7 @@ class AudiobookView extends StatelessWidget {
                               seconds:
                                   controller.player.position.inSeconds - 10));
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.replay_10_rounded,
                           size: 35,
                           color: Const.mainBlack,
@@ -110,7 +110,7 @@ class AudiobookView extends StatelessWidget {
                               seconds:
                                   controller.player.position.inSeconds + 10));
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.forward_10_rounded,
                           size: 35,
                           color: Const.mainBlack,
@@ -120,7 +120,7 @@ class AudiobookView extends StatelessWidget {
                           controller.player
                               .setSpeed(controller.player.speed + 0.25);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.fast_forward_rounded,
                           size: 35,
                           color: Const.mainBlack,
@@ -138,16 +138,16 @@ class AudiobookView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Card(
               clipBehavior: Clip.hardEdge,
-              child: Container(
+              color: Const.primaryColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)),
+              child: SizedBox(
                 height: 200,
                 width: Get.width,
                 child: Row(
                   children: [Image.network(_audiobook.bookCover!)],
                 ),
               ),
-              color: Const.primaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
             ),
           ),
         ],

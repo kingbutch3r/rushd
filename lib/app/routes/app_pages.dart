@@ -1,16 +1,17 @@
 import 'package:get/get.dart';
+import 'package:rushd/app/modules/login/views/splash_view.dart';
 
-import '../modules/audiobook/bindings/audiobook_binding.dart';
 import '../modules/audiobook/views/audiobook_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const intial = Routes.home;
+  static const intial = Routes.login;
 
   static final routes = [
     GetPage(
@@ -26,6 +27,11 @@ class AppPages {
         name: _Paths.currentAudioBook,
         page: () => AudiobookView(),
         transition: Transition.downToUp,
-        transitionDuration: Duration(milliseconds: 350)),
+        transitionDuration: const Duration(milliseconds: 350)),
+    GetPage(
+      name: _Paths.login,
+      page: () => const SplashView(),
+      binding: LoginBinding(),
+    ),
   ];
 }

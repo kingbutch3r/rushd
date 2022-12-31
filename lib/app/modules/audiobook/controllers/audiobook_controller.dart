@@ -4,12 +4,11 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:rushd/app/data/models/audiobook_model.dart';
 
 class AudiobookController extends GetxController {
-  //TODO: Implement AudiobookController
-  Audiobook? audioBook = Get.arguments ?? null;
+  Audiobook? audioBook = Get.arguments;
   final player = AudioPlayer();
-  var totalDuration = Rx<Duration>(Duration());
-  var position = Rx<Duration>(Duration());
-  var bufferedPosition = Rx<Duration>(Duration());
+  var totalDuration = Rx<Duration>(const Duration());
+  var position = Rx<Duration>(const Duration());
+  var bufferedPosition = Rx<Duration>(const Duration());
   var isPlaying = RxBool(false);
 
   loadAudioBook({bool? override = false}) {
@@ -31,32 +30,28 @@ class AudiobookController extends GetxController {
       }
     });
     player.positionStream.listen((event) {
-      if (event != null) {
-        position.value = event;
-      }
+      position.value = event;
     });
     player.bufferedPositionStream.listen((event) {
-      if (event != null) {
-        bufferedPosition.value = event;
-      }
+      bufferedPosition.value = event;
     });
     player.playingStream.listen((event) {
       isPlaying.value = event;
     });
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  // }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+  // @override
+  // void onClose() {
+  //   super.onClose();
+  // }
 }

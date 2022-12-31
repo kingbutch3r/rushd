@@ -6,6 +6,7 @@ abstract class Routes {
   static const home = _Paths.home;
   static const audioBook = _Paths.audioBook;
   static const currentAudioBook = _Paths.currentAudioBook;
+  static const login = _Paths.login;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const home = '/home';
   static const audioBook = '/audiobook';
   static const currentAudioBook = '/current_audiobook';
+  static const login = '/login';
 }
