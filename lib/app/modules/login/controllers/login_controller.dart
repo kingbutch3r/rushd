@@ -10,7 +10,7 @@ class LoginController extends GetxController {
   TextEditingController registeremailctrl = TextEditingController();
   TextEditingController registerNamectrl = TextEditingController();
   TextEditingController registerPassctrl = TextEditingController();
-
+  User? user;
   login() {
     FirebaseAuth.instance.signInWithEmailAndPassword(
         email: loginEmailCtrl.text, password: loginPassCtrl.text);
@@ -23,14 +23,19 @@ class LoginController extends GetxController {
         .then((value) => value.user!.sendEmailVerification());
   }
 
-  checklogin() {
+  checklogin() async {
     if (FirebaseAuth.instance.currentUser == null) {
-// Get.toNamed(page)
+      user = await FirebaseAuth.instance
+          .signInAnonymously()
+          .then((value) => value.user);
+    } else {
+      user = FirebaseAuth.instance.currentUser;
     }
   }
 
   @override
   void onInit() {
+    checklogin();
     super.onInit();
   }
 

@@ -108,10 +108,6 @@ class HomeView extends GetView<HomeController> {
                         InkWell(
                           onTap: () {
                             Get.toNamed("/audiobook", arguments: book);
-                            if (Get.find<AudiobookController>().audioBook ==
-                                null) {
-                              Get.find<AudiobookController>().loadAudioBook();
-                            }
                           },
                           child: Card(
                               elevation: 0,
@@ -146,7 +142,7 @@ class HomeView extends GetView<HomeController> {
                                                           BorderRadius.circular(
                                                               25),
                                                       color:
-                                                          Const.secondaryColor),
+                                                          Const.secondaryBlack),
                                                   child: Text(
                                                     genr,
                                                     style: const TextStyle(

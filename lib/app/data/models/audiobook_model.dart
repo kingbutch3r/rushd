@@ -35,7 +35,7 @@ class Audiobook {
       this.uploadedBy,
       this.chaptersType});
 
-  Audiobook.fromJson(Map<String, dynamic> json) {
+  Audiobook.fromJson(Map<String, dynamic> json, {String? id}) {
     if (json['chapters'] != null) {
       chapters = <Chapters>[];
       json['chapters'].forEach((v) {
@@ -47,6 +47,7 @@ class Audiobook {
     langauge = json['langauge'];
     bookCover = json['book_cover'];
     title = json['title'];
+    id = id;
     tags = json['tags'].cast<String>();
     coverThumb = json['cover_thumb'];
     recordedBy = json['recordedBy'];

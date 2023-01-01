@@ -1,26 +1,24 @@
-import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/audiobook_model.dart';
 
-class AudiobookProvider extends GetConnect {
-  @override
-  void onInit() {
-    httpClient.defaultDecoder = (map) {
-      if (map is Map<String, dynamic>) return Audiobook.fromJson(map);
-      if (map is List) {
-        return map.map((item) => Audiobook.fromJson(item)).toList();
-      }
-    };
-    httpClient.baseUrl = 'YOUR-API-URL';
+class AudiobookProvider {
+  var firestore = FirebaseFirestore.instance;
+  Future<List<Audiobook>> getaudiobooks() async {
+    List<Audiobook> audiobooks = [];
+    var collection = await firestore.collection("audiobooks").get();
+    for (var element in collection.docs) {
+      audiobooks.add(Audiobook.fromFirebaseJson(element));
+    }
+    return audiobooks;
   }
 
-  Future<Audiobook?> getAudiobook(int id) async {
-    final response = await get('audiobook/$id');
-    return response.body;
+  Future<Audiobook> getaudiobookById(id) async {
+    var doc = await firestore.collection("audiobooks").doc(id).get();
+    if (doc.exists) {
+      return Audiobook.fromJson(doc.data()!, id: doc.id);
+    } else {
+      return Future.error("Can't Find Audiobook");
+    }
   }
-
-  Future<Response<Audiobook>> postAudiobook(Audiobook audiobook) async =>
-      await post('audiobook', audiobook);
-  Future<Response> deleteAudiobook(int id) async =>
-      await delete('audiobook/$id');
 }

@@ -24,25 +24,25 @@ class SplashView extends GetView<LoginController> {
               height: Get.height / 3,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Text(
+          const Text(
             "Rushd",
             style: TextStyle(
                 fontSize: 24,
                 color: Const.mainBlack,
                 fontWeight: FontWeight.bold),
           ),
-          Text("Changing Philosphy"),
-          SizedBox(
+          const Text("Changing Philosphy"),
+          const SizedBox(
             height: 40,
           ),
-          CircularProgressIndicator(),
-          SizedBox(
+          const CircularProgressIndicator(),
+          const SizedBox(
             height: 3,
           ),
-          Text("Loading")
+          const Text("Loading")
         ],
       ),
     );
